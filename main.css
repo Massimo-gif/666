@@ -25,7 +25,7 @@ h1,h2,h3,h4,h5,p{color:#fff;padding-bottom: 30px;}
 }
 
 .header{
-    border: 1px solid red;
+   
     width: 100%;
     position: fixed;
     z-index: 2;
@@ -41,13 +41,13 @@ img{
 }  
 
 .logo{
-    border:1px solid red;
+   
     width: auto;
 
 }  
 
 .menu{
-    border:1px solid red;
+    ;
     width: 100%;
 } 
 .menu li{display: inline-block;}
@@ -79,7 +79,7 @@ img{
     
 }
 .hero_content{
-    border: 1px solid red;
+   
     max-width: 1350px;
     width: 100%;
     margin:0 auto;
@@ -91,7 +91,7 @@ img{
     position: absolute;
     top: 0%;
     left: 0%;
-    border: 1px solid red;
+ 
     min-width:100%;
     min-height: 100%;
     z-index: 0;
