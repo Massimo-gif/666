@@ -25,7 +25,8 @@ h1,h2,h3,h4,h5,p{color:#fff;padding-bottom: 30px;}
 }
 
 .header{
-   
+
+    height: 240px;
     width: 100%;
     position: fixed;
     z-index: 2;
@@ -45,6 +46,9 @@ img{
     width: auto;
 
 }  
+
+
+
 
 .menu{
     ;
@@ -83,12 +87,288 @@ img{
     margin:0 auto;
     z-index: 1;
     position: relative;
+    
+}
+/*-------------------*/
+.dropdown {
+    background-color: transparent;
+    color: white;
+    padding: 4px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    
+}
+/*-------------------*/
+
+.dropdown2 {
+    background-color: transparent;
+    color: white;
+    padding: 4px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-indent: 15px;
+}
+
+.dropdown2 {
+    text-indent: 10px;
+
+    display: inline-block;
+    
+}
+
+
+.dropdown-content{
+    text-align: center;
+    
+}
+.dropdown-content {
+/*隐藏 display: none; */
+    opacity: 0; /*不能见*/
+    transform: scaleY(0); /*缩小至0*/
+    transition: opacity 0.5s ease-out,transform 0s 0.5s;
+    /*display: none;*/
+    position: absolute;
+
+    min-width: 68px;
+
+    box-shadow: 0px 8px 16px 0px transparent(0,0,0,0.2);
+    line-height:40px; /*高度距离*/
+
+    text-indent:7px;
+    
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    
+
+    /*display: block;*/
+    
+
+    
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;/*能见*/
+    transform: scaleY(1);/*回复原来大小*/
+    transition: opacity 1.25s ease-out,transform 0s;
+    /*display: block;*/
+
+
+
+}
+
+.dropdown-content:active:after{
+    opacity: 0;/*能见*/
+    transform: scaleY(0);/*回复原来大小*/
+    transition: opacity 1.25s ease-out,transform 0s;
+    
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.dropbtn{
+    text-align: center;
+}
+
+.images{
+    margin-left:-20px; /*位子调整 左移*/
+    text-indent:-5px;
+    width: 20px;  /*大小 */
+    -webkit-transition: -webkit-transform 0.75s;
+    transition: transform 0.75s; /*transform 过度回到原来的位子需要的时间*/
+    
+
+}
+
+.dropdown:hover .images{
+
+    transition-timing-function: linear; /*过度速度保持一直*/
+    transition-duration:0.5s;/*transform 过度到指定要求需要的时间*/
+    -webkit-transform: translateY(-8px) translateX(-9px) rotate(-90deg) ;/*trasform 要求 横向移动 上下移动 旋转90°*/
+    transform: translateY(-8px) translateX(-9px)  rotate(-90deg); 
+
+}
+
+
+
+.both {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    line-height: 2px;
+    text-indent:7px;
+
+    box-shadow: inset 0 0 0 2px #ddd;
+    margin:-7px auto;
+    text-align: left;
+
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 1s;
+    overflow: hidden;
+    
+  }
+  
+ /*切换语言下拉框边缘变蓝动漫*/
+ .dropdown::before,
+ .dropdown::after {
+   content: "";
+   position: absolute;
+   width: 0;
+   height: 0;
+   top: 0;
+   left: 0;
+   box-sizing: border-box;
+   border: 2px solid transparent;
+   display: flex;
+ }
+ 
+ .dropdown:hover {
+   color: #9ff4ff;
+ }
+ .dropdown:hover::before {
+   transition: width 0.25s, height 0.25s, border-bottom-color 0s;
+   transition-delay: 0.25s, 0s, 0.25s;
+   width: 100px;
+   height: 50px;
+   border-left: 2px solid #9ff4ff;
+   border-bottom: 2px solid #9ff4ff;
+   
+ }
+ .dropdown:hover::after {
+   transition: width 0.25s, height 0.25s, border-right-color 0.25s;
+   transition-delay: 0s, 0.25s, 0.25s;
+   width: 100px;
+   height: 50px;
+   border-top: 2px solid #9ff4ff;
+   border-right: 2px solid #9ff4ff;
+   
+ }
+
+
+  
+ /*切换语言下拉框边缘变蓝动漫*/
+ .dropdown2::before,
+ .dropdown2::after {
+   content: "";
+   position: absolute;
+   width: 0;
+   height: 0;
+   top: 0;
+   left: 0;
+   box-sizing: border-box;
+   border: 2px solid transparent;
+   display: flex;
+   text-align: left;
+   
+ }
+ 
+ .dropdown2:hover {
+   color: #9ff4ff;
+ }
+ .dropdown2:hover::before {
+   transition: width 0.25s, height 0.25s, border-bottom-color 0s;
+   transition-delay: 0.25s, 0s, 0.25s;
+   width: 100px;
+   height: 50px;
+   border-left: 2px solid #9ff4ff;
+   border-bottom: 2px solid #9ff4ff;
+   
+ }
+ .dropdown2:hover::after {
+   transition: width 0.25s, height 0.25s, border-right-color 0.25s;
+   transition-delay: 0s, 0.25s, 0.25s;
+   width: 100px;
+   height: 50px;
+   border-top: 2px solid #9ff4ff;
+   border-right: 2px solid #9ff4ff;
+   
+ }
+ /*--*/
+.ss{
+    width: 1200px;
+    height: 500px;
+}
+
+.kb{
+    width: 1200px;
+    height: 120px;
+    backgroud-color: black;
+}
+.IS{
+    color: black;
+
+    text-indent:700px;
+    font-size: 40px;
+    font-family: 'Georgia';
+
+}
+
+.IS1{
+    color: black;
+    font-size: 20px;
+    font-family: 'Georgia';
+
+}
+
+.titolo{
+    font-size: 50px;
+    font-family:'Georgia';
+
+}
+
+.intro{
+    font-family:'Georgia';
+    font-size: 20px;
+
+
+}
+
+.step1{
+    width: 90%;
+    height: 90%;
+    margin: 0px 400px;
+
+
+}
+.image{
+    width: 70%;
+    height: 100%;
+}
+
+.pdf{
+    margin: 0px 20px;
+    transform: translateY(-20px);
+
+}
+
+.cubo4{
+    width: auto;
+    height: auto;
+
+
 }
 
 #frattali{
     position: absolute;
     top: 0%;
     left: 0%;
+    
  
     min-width:100%;
     min-height: 100%;

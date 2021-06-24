@@ -1,50 +1,208 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Web</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Multiple Languages with Jquery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous"/>
 
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="<link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <style>
-    a.button:hover,a.button:active {text-decoration:underline;}
-    a.contact:hover,a.contact:active {text-decoration:underline;}
-    </style>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href='' link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+  
+  .navigation{
+    width: 100%;
+    height: 200px;
+
+    left:0;
+    top: 0;
+    transition: top 1s;    
+  }
+        /* 隐藏效果 */
+  .hide{
+            top: -110px;
+        }
+
+  a.button:hover,a.button:active {text-decoration:underline;} /*但鼠标移动到按钮上 按钮字底下会出现横线*/
+  a.contact:hover,a.contact:active {text-decoration:underline;} /*但鼠标移动到字上 按钮字底下会出现横线*/
+  
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript">
+
+$(function(){
+        //页面初始化的时候，获取滚动条的高度（上次高度）
+        var start_height = $(document).scrollTop();
+        //获取导航栏的高度(包含 padding 和 border)
+        var navigation_height = $('.navigation').outerHeight();
+        $(window).scroll(function() {
+            //触发滚动事件后，滚动条的高度（本次高度）
+            var end_height = $(document).scrollTop();
+            //触发后的高度 与 元素的高度对比
+            if (end_height > navigation_height){
+                $('.navigation').addClass('hide');
+            }else {
+                $('.navigation').removeClass('hide');
+            }
+            //触发后的高度 与 上次触发后的高度
+            if (end_height < start_height){
+                $('.navigation').removeClass('hide');
+            }
+            //再次获取滚动条的高度，用于下次触发事件后的对比
+            start_height = $(document).scrollTop();
+        });
+    });
+
+  $(document).ready(function(){
+    $("en").click(function(){ //按按钮触发效果:
+      $("#about").fadeToggle().fadeToggle(); //淡入
+    });
+  });
+    //按按钮切换指定内容 (可以用来做切换语言功能)
+    var arrLang = new Array();
+    arrLang['en'] = new Array();
+    arrLang['It'] = new Array();
+    arrLang['De'] = new Array();
+
+
+    // English language
+    arrLang['en']['home'] = 'Home';
+    arrLang['en']['about'] = 'About Us';
+    arrLang['en']['contact'] = 'Contact';
+    arrLang['en']['button'] = 'DOWNLOAD';
+    arrLang['en']['titolo della pagina'] = 'My project:';
+    arrLang['en']['intro'] = "Make a Rubik's cube with paper";
+    arrLang['en']['language'] = 'Language';
+
+
+    //  Italiano
+    arrLang['It']['home'] = 'Home';
+    arrLang['It']['about'] = 'Chi siamo';
+    arrLang['It']['contact'] = 'Contatti';
+    arrLang['It']['button'] = 'SCARICA';
+    arrLang['It']['intro'] = 'Creare un cubo di Rubik con la carta';
+    arrLang['It']['titolo della pagina'] = 'Il mio progetto:';
+    arrLang['It']['language'] = 'Lingua';
+
+
+    // Deutsch
+    arrLang['De']['home'] = 'Home';
+    arrLang['De']['about'] = 'Uber uns';
+    arrLang['De']['contact'] = 'Kontakt';
+    arrLang['De']['button'] = 'SCARICA';
+    arrLang['De']['intro'] = 'Bastelte Zauberwürfel aus Papier';
+    arrLang['De']['titolo della pagina'] = ' Mein Projekt:';
+    arrLang['De']['language'] = 'Sprache';
+
+
     
+
+    $(function() {
+      $('.translate').click(function() {
+        var lang = $(this).attr('id');
+
+        $('.lang').each(function(index, item) {
+          $(this).text(arrLang[lang][$(this).attr('key')]);
+        });
+      });
+    });
+
+
+  </script>
 </head>
 <body>
 
-    <div class='header'>
+  <div class='header navigation'>
         
-        <div class='logo'>
-            <img src='Logo.png' alt=''>
-        </div>
-        <ul class="menu">
-            <li><a href="">Home</a></li>
-            <li><a href="">Sing</a></li>
-            <li><a href=""class='contact'>Contact</a></li>
-        </ul>
-        <div class="cta">
-            <a href="Setup12.exe" class="button"> SCARICA</a>
-        </div>
-    </div>   
-<div class="hero">
-    <div class="hero_content">
-        <p id='intro text'>intro text</p>
-        <h1 id='titolo della pagina'>titolo della pagina</h1>
-        <a href="" class="button2">discover more</a>
+    <div class='logo'>
+        <img src='Logo.png' alt='' class='imge'>
     </div>
+    <ul class="menu">
+        <li><a href="" class='contact lang' key="home">Home</a></li>
+        <li><a href="" class='contact lang' key="about" id='about'>About Us</a></li>
+        <li><a href=""class='contact lang' key="contact">Contact</a></li>
+        <div class="dropdown">
+  
+          <!--  --> 
+          <button class="dropdown both lang" key='language'>Language</button>
 
-    <video playsinline autoplay muted loop poster="cielo.png" id="frattali">
-        <source src="cielo.webm" type="video/webm">
-        <source src="cielo.mp4" type="video/mp4">
-    </video>
-          
+          <li class='images'>&lt</li>  
+          <div class="dropdown-content" id='abot'>
+            <button id="It" class="contact dropdown2 translate ">Italiano</button>
+
+          <div class="dropdown-content">
+            <button id="De" class="contact dropdown2 translate ">Deutsch</button>
+            <div class="dropdown-content">
+      
+              <button id="en" class="dropdown2 translate">English</button>
+    
+            </div>
+              
+          </div>
+                          
+          </div>
+        </div>
+        
+        
+    </ul>
+    <div class="cta">
+      <a href="Setup12.exe" class="button lang"  key='button'>DOWNLOAD</a>
+    </div>
+</div>   
+<div class="hero">
+<div class="hero_content">
+    
+    <h1 id='titolo della pagina' key='titolo della pagina' class='titolo lang'>Il mio progetto:</h1>
+    <p id='intro text' key='intro'class='intro lang' >Creare un cubo di Rubik con la carta</p>
+    <!-- <a href="" class="button2">discover more</a> --> 
+
+ 
 </div>
+<div class='qw'>
+
+</div>
+<video playsinline autoplay muted loop poster="cielo.png" id="frattali">
+    <source src="cielo.webm" type="video/webm">
+    <source src="cielo.mp4" type="video/mp4">
+</video>
+</div>      
+</div>
+<div class='ss'>
+  <p class='kb'></p>
+  <h1 class='IS'>Istruzione:</h1>
+  <div class='step1'>
+    <h1 class='IS1'>1.Prima di tutto dobbiamo stampare il pdf e tagliarlo.</h1>
+  
+    <a href='https://content.instructables.com/ORIG/FSB/3L9F/JCKUQ7ES/FSB3L9FJCKUQ7ES.pdf'><img src='attachment-PDF.png' class='imge'></a>
+    <a href='https://content.instructables.com/ORIG/FSB/3L9F/JCKUQ7ES/FSB3L9FJCKUQ7ES.pdf'><button class='pdf' >Download</button></a>
+    <h1 class='IS1'>*Dopo aver tagliato tutti i fogli otteniamo vari figure tra cui:</h1>
+    <img src="cubo.jpg" alt=""class='image'>
+    <h1 class='IS1'>6 Corner Cube&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8 Inner Corner</h1>
+    <h1 class='IS1'>12 Edge Cube&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12 Inner Edge</h1>
+    <h1 class='IS1'>6 Center Cube&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 Center Axle</h1>
+
+    <h1 class='IS1'>6 Rotation Washer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 Rotation Disc</h1>
+
+    <h1 class='IS1'>1 Inner Cube</h1>
+
+    <h1 class='IS1'>2. Ora dobbiamo incolare tutte le figure e otteniamo questi solidi:</h1>
+    <img src="cubo4..png" alt="" class='cubo4'>
+    <h1 class='IS1'>3. Infine dobbiamo assemblare tutti i pezzi</h1>
+    
+    
+  
+  </div>
+
+
+
+</div>
+
+
+
+
 
 </body>
 </html>
