@@ -76,6 +76,7 @@ $(function(){
     arrLang['en']['titolo della pagina'] = 'My project:';
     arrLang['en']['intro'] = "Make a Rubik's cube with paper";
     arrLang['en']['language'] = 'Language';
+    
 
 
     //  Italiano
@@ -96,6 +97,9 @@ $(function(){
     arrLang['De']['intro'] = 'Bastelte Zauberwürfel aus Papier';
     arrLang['De']['titolo della pagina'] = ' Mein Projekt:';
     arrLang['De']['language'] = 'Sprache';
+    arrLang['De']['istruzione'] = 'Anleitung:';
+    arrLang['De']['1'] = "Vor allen Dingen mussen wir 'PDF' drucken und schneiden";
+    arrLang['De']['pdf'] = 'Herunterladen';
 
 
     
@@ -172,12 +176,12 @@ $(function(){
 </div>
 <div class='ss'>
   <p class='kb'></p>
-  <h1 class='IS'>Istruzione:</h1>
+  <h1 class='IS lang' key='istruzione'>Istruzione:</h1>
   <div class='step1'>
-    <h1 class='IS1'>1.Prima di tutto dobbiamo stampare il pdf e tagliarlo.</h1>
+    <h1 class='IS1 lang' key='1'>1.Prima di tutto dobbiamo stampare il pdf e tagliarlo.</h1>
   
     <a href='https://content.instructables.com/ORIG/FSB/3L9F/JCKUQ7ES/FSB3L9FJCKUQ7ES.pdf'><img src='attachment-PDF.png' class='imge'></a>
-    <a href='https://content.instructables.com/ORIG/FSB/3L9F/JCKUQ7ES/FSB3L9FJCKUQ7ES.pdf'><button class='pdf' >Download</button></a>
+    <a href='https://content.instructables.com/ORIG/FSB/3L9F/JCKUQ7ES/FSB3L9FJCKUQ7ES.pdf'><button class='pdf lang' key='pdf' >Download</button></a>
     <h1 class='IS1'>*Dopo aver tagliato tutti i fogli otteniamo vari figure tra cui:</h1>
     <img src="cubo.jpg" alt=""class='image'>
     <h1 class='IS1'>6 Corner Cube&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8 Inner Corner</h1>
@@ -191,7 +195,6 @@ $(function(){
     <h1 class='IS1'>2. Ora dobbiamo incolare tutte le figure e otteniamo questi solidi:</h1>
     <img src="cubo4..png" alt="" class='cubo4'>
     <h1 class='IS1'>3. Infine dobbiamo assemblare tutti i pezzi</h1>
-    
     
   
   </div>
