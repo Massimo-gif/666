@@ -364,6 +364,11 @@ img{
 
 }
 
+.contact1{
+    color: black;
+    margin:420px -20px; /*高度距离*/
+
+}
 #frattali{
     position: absolute;
     top: 0%;
